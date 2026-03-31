@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f2a5c"></stop>
+      <stop offset="100%" stop-color="#1c4ed8"></stop>
+    </linearGradient>
+
+    <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3b82f6"></stop>
+      <stop offset="100%" stop-color="#1e40af"></stop>
+    </linearGradient>
+  </defs>
+
+  <!-- фон -->
+  <rect x="0" y="0" width="64" height="64" rx="14" fill="url(#bg)"></rect>
+
+  <!-- щит -->
+  <path d="M32 10 L52 18 V30 C52 42 42 50 32 54 C22 50 12 42 12 30 V18 Z" fill="url(#shield)" stroke="#cbd5f5" stroke-width="2"></path>
+
+  <!-- замок -->
+  <rect x="24" y="28" width="16" height="12" rx="3" fill="white"></rect>
+  <path d="M26 28 V24 A6 6 0 0 1 38 24 V28" stroke="white" stroke-width="2" fill="none"></path>
+
+</svg>
