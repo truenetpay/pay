@@ -44,23 +44,6 @@ body {
 
 .left { max-width: 520px; }
 
-/* BRAND BLOCK */
-.brand-block {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 25px;
-}
-
-.brand-block img {
-  width: 42px;
-}
-
-.brand-name {
-  font-size: 26px;
-  font-weight: 600;
-}
-
 h1 {
   font-size: 48px;
   line-height: 1.2;
@@ -121,9 +104,21 @@ h1 {
   text-decoration: none;
 }
 
-/* RIGHT */
+/* RIGHT BLOCK */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
 .right img {
-  width: 480px;
+  width: 300px;
+}
+
+/* BRAND TEXT */
+.brand-name {
+  font-size: 36px;
+  font-weight: 600;
 }
 
 /* MOBILE */
@@ -136,16 +131,20 @@ h1 {
     padding: 20px;
   }
 
-  .brand-block {
-    justify-content: center;
+  .right {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+
+  .right img {
+    width: 180px;
+  }
+
+  .brand-name {
+    font-size: 28px;
   }
 
   h1 { font-size: 32px; }
-
-  .right img {
-    width: 220px;
-    margin-top: 20px;
-  }
 }
 </style>
 </head>
@@ -155,12 +154,6 @@ h1 {
 <div class="hero">
 
   <div class="left">
-
-    <!-- 🔥 БРЕНД -->
-    <div class="brand-block">
-      <img src="/shield.png">
-      <div class="brand-name">TrueNET</div>
-    </div>
 
     <h1>
       Не массовый сервис.<br>
@@ -199,8 +192,10 @@ h1 {
 
   </div>
 
+  <!-- RIGHT -->
   <div class="right">
     <img src="/shield.png">
+    <div class="brand-name">TrueNET</div>
   </div>
 
 </div>
