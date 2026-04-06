@@ -179,7 +179,7 @@ h1 {
       Привычные сервисы работают нестабильно? Решение есть
     </div>
 
-    <button class="btn" onclick="goToOrder()">
+    <button class="btn" onclick="window.location.href='/tariffs/'">
       Получить свой сервер
     </button>
 
@@ -216,32 +216,6 @@ h1 {
   </div>
 
 </div>
-
-<script>
-async function goToOrder() {
-
-  ym(XXXXXXXX, 'reachGoal', 'click_button');
-
-  const res = await fetch("https://your-proxy.onrender.com/create", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": "YOUR_ADMIN_KEY"
-    },
-    body: JSON.stringify({
-      price: 2700,
-      ttl: 3600
-    })
-  });
-
-  const data = await res.json();
-
-  ym(XXXXXXXX, 'reachGoal', 'order_created');
-  ym(XXXXXXXX, 'reachGoal', 'redirect_to_payment');
-
-  onclick="window.location.href='/tariffs/'";
-}
-</script>
 
 </body>
 </html>
