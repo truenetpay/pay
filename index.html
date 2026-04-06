@@ -107,22 +107,35 @@ h1 {
 /* RIGHT BLOCK */
 .right {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 5px;
 }
 
 .right img {
-  width: 300px;
+  width: 450px;
 }
 
 /* BRAND TEXT */
 .brand-name {
   font-size: 36px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  background: linear-gradient(90deg, #60a5fa, #2563eb, #1e40af);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 0 12px rgba(59,130,246,0.4);
+}
+
+/* акцент NET */
+.brand-name span {
+  color: #93c5fd;
+  -webkit-text-fill-color: #93c5fd;
 }
 
 /* MOBILE */
-@media (max-width: 768px) {
+@media (max-width: 870px) {
 
   .hero {
     flex-direction: column;
@@ -195,7 +208,7 @@ h1 {
   <!-- RIGHT -->
   <div class="right">
     <img src="/shield.png">
-    <div class="brand-name">TrueNET</div>
+    <div class="brand-name">True<span>NET</span></div>
   </div>
 
 </div>
