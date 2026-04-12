@@ -331,6 +331,7 @@ async function createOrder(){
   const data = await res.json();
   btn.innerText = "Переход...";
 
+  ym(108510887, 'reachGoal', 'go_to_payment');
   window.location.href = data.link;
 }
 
