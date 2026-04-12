@@ -64,12 +64,15 @@ h1 {
   margin-bottom: 15px;
   font-weight: 700;
 
-  display: inline-block;
-  padding: 10px 16px;
-  border-radius: 12px;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
 
-  background: rgba(0,0,0,0.35);
-  backdrop-filter: blur(6px);
+.accent {
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 0 20px rgba(59,130,246,0.5);
 }
 
 .subtitle {
@@ -190,10 +193,10 @@ h1 {
 
   <div class="left">
 
-    <h1>
-      Ваш личный сервер<br>
-      для стабильного доступа к любимым сервисам
-    </h1>
+<h1>
+  Ваш <span class="accent">личный сервер</span><br>
+  для стабильного доступа к сервисам
+</h1>
 
     <div class="subtitle">
       Привычные сервисы работают с перебоями? Решение — персональный сервер
