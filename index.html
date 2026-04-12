@@ -31,7 +31,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   color: white;
-  background: black; /* важно */
+  position: relative;
+  background: black;
 }
 
 body::before {
@@ -40,6 +41,7 @@ body::before {
   inset: 0;
   background: url("/bg.webp") no-repeat center/cover;
   z-index: -1;
+  pointer-events: none;
 }
 
 html, body {
