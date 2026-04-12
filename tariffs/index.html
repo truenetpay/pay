@@ -32,31 +32,68 @@ body::before {
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 420px;
+    max-width: 1100px;
     margin: auto;
-    padding: 20px;
-    text-align: center;
+    padding: 30px 20px;
 }
 
+/* GRID */
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ПК layout */
+@media (min-width: 900px) {
+    .row {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .base-card {
+        flex: 0.9;
+    }
+
+    .addons-card {
+        flex: 1.4;
+    }
+}
+
+/* CARD */
 .card {
     background: rgba(255,255,255,0.08);
     backdrop-filter: blur(25px);
     border-radius: 20px;
-    padding: 20px;
-    margin-top: 15px;
+    padding: 24px;
     box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+    height: 100%;
 }
 
+/* TEXT */
 .price {
-    font-size: 20px;
+    font-size: 22px;
     margin-top: 10px;
+}
+
+.note {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #cbd5f5;
+}
+
+.highlight {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #93c5fd;
+    line-height: 1.5;
 }
 
 /* ADDONS */
 .addon {
-    margin-top: 10px;
-    padding: 14px;
-    border-radius: 12px;
+    margin-top: 12px;
+    padding: 16px;
+    border-radius: 14px;
     background: rgba(255,255,255,0.08);
     cursor: pointer;
     transition: 0.2s;
@@ -74,32 +111,20 @@ body::before {
 button {
     font-family: inherit;
     width: 100%;
-    margin-top: 15px;
-    padding: 14px;
-    border-radius: 12px;
+    margin-top: 20px;
+    padding: 16px;
+    border-radius: 14px;
     border: none;
     background: linear-gradient(90deg, #3b82f6, #2563eb);
     color: white;
-    font-size: 16px;
+    font-size: 17px;
     cursor: pointer;
-}
-
-.note {
-    margin-top: 10px;
-    font-size: 12px;
-    color: #cbd5f5;
-}
-
-.highlight {
-    margin-top: 10px;
-    font-size: 13px;
-    color: #93c5fd;
 }
 
 /* TG */
 .tg {
     margin-top: 15px;
-    font-size: 13px;
+    font-size: 14px;
     color: #cbd5f5;
 }
 
@@ -114,7 +139,10 @@ button {
 
 <div class="container">
 
-<div class="card">
+<div class="row">
+
+<!-- БАЗА -->
+<div class="card base-card">
 
 <b>Базовый сервер</b><br><br>
 
@@ -134,12 +162,14 @@ button {
 </div>
 
 <div class="highlight">
-Первый месяц включён, далее ~250 ₽/мес напрямую
+После настройки вы получаете доступ в личный кабинет для управления сервером<br>
+Продление — ~250 ₽/месяц напрямую провайдеру
 </div>
 
 </div>
 
-<div class="card">
+<!-- ОПЦИИ -->
+<div class="card addons-card">
 
 <b>Дополнительные опции</b>
 
@@ -149,9 +179,9 @@ button {
 </div>
 
 <div class="addon" onclick="toggleAddon(this,600)">
-🔄 Поддержка после настройки
-<div class="note">Помощь при вопросах или сбоях • +600 ₽</div>
-<div class="note">Можно подключить позже при необходимости</div>
+🔄 Послегарантийная поддержка
+<div class="note">Помощь при вопросах или сбоях после 14 дней • +600 ₽</div>
+<div class="note">Можно подключить позже</div>
 </div>
 
 <div class="addon" onclick="toggleAddon(this,500)">
@@ -169,6 +199,9 @@ button {
 
 </div>
 
+</div>
+
+<!-- ИНДИВИДУАЛЬНО -->
 <div class="card">
 
 Индивидуальная настройка<br><br>
