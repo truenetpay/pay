@@ -216,6 +216,7 @@ async function loadOrder() {
 orderBox.addEventListener("click", () => {
   navigator.clipboard.writeText(orderId);
   orderBox.innerText = "✅ Скопировано";
+  setTimeout(() => orderBox.innerText = orderId, 2000);
 });
 
 // ===== TIMER =====
