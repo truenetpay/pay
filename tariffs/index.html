@@ -234,6 +234,14 @@ button:hover {
 </div>
 
 <script>
+const antiBot = {
+  start: Date.now(),
+  token: Math.random().toString(36).slice(2),
+  clicks: 0
+};
+</script>
+
+<script>
 let basePrice = 2700;
 let addons = [];
 
@@ -256,6 +264,24 @@ function updatePrice(){
 }
 
 async function createOrder(){
+    if (Date.now() - antiBot.start < 1500) {
+      alert("Подождите секунду и попробуйте снова");
+      return;
+    }
+
+
+    antiBot.clicks++;
+    if (antiBot.clicks > 3) {
+        alert("Слишком много попыток");
+        return;
+    }
+    
+    if (createOrder.loading) return;
+    
+    createOrder.loading = true;
+    const btn = document.querySelector("button");
+    btn.innerText = "Создание заказа...";
+    btn.disabled = true;
 
   const total = basePrice + addons.reduce((a,b)=>a+b,0);
 
@@ -265,13 +291,24 @@ async function createOrder(){
       "Content-Type":"application/json"
     },
     body: JSON.stringify({
-      price: total,
-      ttl: 3600,
-      addons: addons
+        price: total,
+        ttl: 3600,
+        addons: addons,
+        token: antiBot.token,
+        t: Date.now() - antiBot.start
     })
   });
 
+    if (!res.ok) {
+        alert("Ошибка. Попробуйте позже");
+        createOrder.loading = false;
+        btn.disabled = false;
+        btn.innerText = "Перейти к оплате";
+      return;
+    }
+
   const data = await res.json();
+  btn.innerText = "Переход...";
 
   window.location.href = data.link;
 }
