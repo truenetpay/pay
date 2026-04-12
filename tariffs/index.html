@@ -20,60 +20,43 @@ body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.7),
-        rgba(0,0,0,0.6)
-    );
+    background: rgba(0,0,0,0.65);
     z-index: 1;
 }
 
 .container {
     position: relative;
     z-index: 2;
-    width: 100%;
-    max-width: 1100px;
+    max-width: 1000px;
     margin: auto;
     padding: 30px 20px;
 }
 
-/* GRID */
-.row {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-/* ПК layout */
-@media (min-width: 900px) {
-    .row {
-        flex-direction: row;
-        align-items: stretch;
-    }
-
-    .base-card {
-        flex: 0.9;
-    }
-
-    .addons-card {
-        flex: 1.4;
-    }
-}
-
 /* CARD */
 .card {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(25px);
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(30px);
     border-radius: 20px;
-    padding: 24px;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-    height: 100%;
+    padding: 28px;
+    margin-top: 20px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
 }
 
 /* TEXT */
-.price {
+.title {
     font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 26px;
     margin-top: 10px;
+    font-weight: bold;
 }
 
 .note {
@@ -83,48 +66,83 @@ body::before {
 }
 
 .highlight {
-    margin-top: 12px;
+    margin-top: 14px;
     font-size: 14px;
     color: #93c5fd;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
-/* ADDONS */
+/* ADDONS GRID */
+.addons-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+@media (min-width: 700px) {
+    .addons-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ADDON */
 .addon {
-    margin-top: 12px;
     padding: 16px;
-    border-radius: 14px;
-    background: rgba(255,255,255,0.08);
+    border-radius: 16px;
+    background: rgba(255,255,255,0.06);
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.25s;
+    border: 1px solid transparent;
 }
 
 .addon:hover {
-    background: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.12);
 }
 
 .addon.active {
-    background: linear-gradient(90deg, #10b981, #059669);
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+/* RECOMMENDED */
+.recommended {
+    border: 1px solid #3b82f6;
+    position: relative;
+}
+
+.recommended::after {
+    content: "рекомендуем";
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    background: #3b82f6;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 8px;
 }
 
 /* BUTTON */
 button {
-    font-family: inherit;
     width: 100%;
-    margin-top: 20px;
-    padding: 16px;
-    border-radius: 14px;
+    margin-top: 25px;
+    padding: 18px;
+    border-radius: 16px;
     border: none;
-    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    background: linear-gradient(90deg, #2563eb, #3b82f6);
     color: white;
-    font-size: 17px;
+    font-size: 18px;
+    font-weight: 600;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: scale(1.02);
 }
 
 /* TG */
 .tg {
-    margin-top: 15px;
-    font-size: 14px;
+    margin-top: 12px;
+    font-size: 13px;
     color: #cbd5f5;
 }
 
@@ -139,54 +157,55 @@ button {
 
 <div class="container">
 
-<div class="row">
-
 <!-- БАЗА -->
-<div class="card base-card">
+<div class="card">
 
-<b>Базовый сервер</b><br><br>
+<div class="title">Базовый сервер</div>
 
 1 vCPU • 1GB RAM • 10GB NVMe<br>
 1 IPv4 • 500 Mbit/s<br><br>
 
 <span style="color:#93c5fd">
-Подходит для 10–20 активных пользователей
+Подходит для 10–20 пользователей
 </span>
 
 <div class="price">
-Базовая настройка — <b>2700 ₽</b>
+2700 ₽
 </div>
 
 <div class="note">
-Включено: настройка + подключение до 2 устройств + поддержка 14 дней
+Включено: настройка + до 2 устройств + поддержка 14 дней
 </div>
 
 <div class="highlight">
-После настройки вы получаете доступ в личный кабинет для управления сервером<br>
-Продление — ~250 ₽/месяц напрямую провайдеру
+Доступ к личному кабинету для управления сервером<br>
+Продление — ~250 ₽/месяц напрямую
 </div>
 
 </div>
 
 <!-- ОПЦИИ -->
-<div class="card addons-card">
+<div class="card">
 
-<b>Дополнительные опции</b>
+<div class="title">Дополнительные опции</div>
+
+<div class="addons-grid">
 
 <div class="addon" onclick="toggleAddon(this,300)">
-📱 Подключение всех устройств
-<div class="note">Настройка более 2 устройств • +300 ₽</div>
+📱 Подключение всех устройств<br>
+<div class="note">+300 ₽</div>
 </div>
 
-<div class="addon" onclick="toggleAddon(this,600)">
-🔄 Послегарантийная поддержка
-<div class="note">Помощь при вопросах или сбоях после 14 дней • +600 ₽</div>
-<div class="note">Можно подключить позже</div>
+<div class="addon recommended" onclick="toggleAddon(this,600)">
+🔄 Послегарантийная поддержка<br>
+<div class="note">+600 ₽</div>
 </div>
 
 <div class="addon" onclick="toggleAddon(this,500)">
-🚀 Приоритетная настройка
-<div class="note">Настройка вне очереди • +500 ₽</div>
+🚀 Приоритетная настройка<br>
+<div class="note">+500 ₽</div>
+</div>
+
 </div>
 
 <button onclick="createOrder()">
@@ -194,9 +213,7 @@ button {
 </button>
 
 <div class="note">
-Все опции оплачиваются один раз. Подписки отсутствуют.
-</div>
-
+Все опции оплачиваются один раз
 </div>
 
 </div>
@@ -204,14 +221,14 @@ button {
 <!-- ИНДИВИДУАЛЬНО -->
 <div class="card">
 
-Индивидуальная настройка<br><br>
+<div class="title">Индивидуальная настройка</div>
 
 <button onclick="goTG()">
 Обсудить в Telegram
 </button>
 
 <div class="tg">
-или написать: <a href="https://t.me/truenet_support">@truenet_support</a>
+<a href="https://t.me/truenet_support">@truenet_support</a>
 </div>
 
 </div>
