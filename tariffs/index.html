@@ -47,6 +47,11 @@ body::before {
     transform: translateY(-3px);
 }
 
+/* ✅ ТОЛЬКО БАЗА ПО ЦЕНТРУ */
+.base-card {
+    text-align: center;
+}
+
 /* TEXT */
 .title {
     font-size: 22px;
@@ -93,6 +98,7 @@ body::before {
     cursor: pointer;
     transition: 0.25s;
     border: 1px solid transparent;
+    text-align: left; /* фикс */
 }
 
 .addon:hover {
@@ -158,7 +164,7 @@ button:hover {
 <div class="container">
 
 <!-- БАЗА -->
-<div class="card">
+<div class="card base-card">
 
 <div class="title">Базовый сервер</div>
 
