@@ -6,6 +6,7 @@
 <title>TrueNET — Оплата</title>
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="/bg.webp">
 
 <style>
 * { box-sizing: border-box; }
@@ -13,7 +14,7 @@
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    background: url("/bg.png") no-repeat center center fixed;
+    background: url("/bg.webp") no-repeat center center;
     background-size: cover;
     height: 100vh;
     display: flex;
@@ -128,6 +129,11 @@ button.disabled {
     opacity: 1;
     color: #cbd5f5;
 }
+
+img {
+  display: block;
+  max-width: 100%;
+}
 </style>
 </head>
 
@@ -135,17 +141,17 @@ button.disabled {
 
 <div class="container">
 
-<img src="/logo.png" class="logo-img">
+<img src="/shield.webp" class="logo-img">
 <div class="logo">TrueNET</div>
 
 <div class="subtitle">
-Персональные серверные решения для стабильного и безопасного доступа в Интернет
+Ваш персональный сервер для стабильного, быстрого и безопасного доступа к нужным сервисам
 </div>
 
 <div class="features">
-✔ Стабильный доступ<br>
-✔ Индивидуальная настройка<br>
-✔ Конфиденциальность
+✔ Работает стабильно даже при нагрузке<br>
+✔ Запуск без сложных настроек<br>
+✔ Данные не передаются третьим лицам
 </div>
 
 <div id="price" class="price">Загрузка...</div>
