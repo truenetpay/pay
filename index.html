@@ -255,7 +255,7 @@ h1 {
 }
 
 #chatSend:active {
-  transform: translateZ(-10px);
+  transform: translateY(3px);
 }
 
 #chatFormOverlay {
@@ -457,6 +457,8 @@ bubble.onclick = () => {
     }, 100);
   } else {
     formOverlay.style.display = "none";
+    const el = document.getElementById("chatMessages");
+    el.scrollTop = el.scrollHeight;
   }
 };
 
@@ -518,6 +520,8 @@ async function sendMsg(){
         tg
       })
     });
+    const el = document.getElementById("chatMessages");
+    el.scrollTop = el.scrollHeight;
   } catch (e) {
     console.error("send error", e);
   }
