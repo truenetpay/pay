@@ -105,7 +105,7 @@ input {
     color: white;
 }
 
-button {
+.btnActive {
     width: 100%;
     margin-top: 15px;
     padding: 14px;
@@ -348,7 +348,7 @@ ym(108510887, "init", {
 <input type="text" name="name" placeholder="Ваше имя" required>
 <input type="email" name="email" placeholder="Ваш email" required>
 <input type="text" name="tg" placeholder="Telegram (не обязательно)">
-<button id="btn">Перейти к оплате</button>
+<button class="btnActive" id="btn">Перейти к оплате</button>
 </form>
 
 <div class="footer">
@@ -455,7 +455,6 @@ function startTimer() {
 
   timerInterval = setInterval(() => {
 
-    // 🔥 стоп если оплачено или проверка
     if (orderData.status === "paid" || orderData.status === "checking") {
       clearInterval(timerInterval);
       timerEl.innerText = "";
