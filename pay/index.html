@@ -565,7 +565,7 @@ loadOrder();
 </script>
 
 <script>
-const API = "https://proxy-uxtj.onrender.com/chat";
+const API2 = "https://proxy-uxtj.onrender.com/chat";
 
 function getClientId(){
   let id = localStorage.getItem("client_id");
@@ -651,7 +651,7 @@ async function sendMsg(){
   const tg = localStorage.getItem("tg") || "";
 
   try {
-    await fetch(API + "/send", {
+    await fetch(API2 + "/send", {
       method:"POST",
       headers:{ "Content-Type":"application/json" },
       body: JSON.stringify({
@@ -675,7 +675,7 @@ async function sendMsg(){
 
 async function loadChat(){
   try {
-    const res = await fetch(API + "?client=" + clientId);
+    const res = await fetch(API2 + "?client=" + clientId);
     const data = await res.json();
 
     const el = document.getElementById("chatMessages");
